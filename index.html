@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoHire: AI-Powered Resume Matcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>AutoHire: AI-Powered Resume Matcher</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="resume">Upload Resume (PDF):</label>
+        <input type="file" name="resume" id="resume" required><br><br>
+        <label for="jd">Paste Job Description:</label><br>
+        <textarea name="jd" id="jd" rows="10" cols="50" required></textarea><br><br>
+        <input type="submit" value="Match">
+    </form>
+    {% if score is not none %}
+        <h2>Match Score: {{ score }}%</h2>
+    {% endif %}
+</body>
+</html>
